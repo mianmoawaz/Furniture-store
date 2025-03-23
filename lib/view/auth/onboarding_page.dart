@@ -22,7 +22,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           body: "",
           image: Center(
             child: Padding(
-              padding: const EdgeInsets.only(top: 0),
+              padding: const EdgeInsets.only(top: 100),
               child: Image.asset('assets/Modern-Chair-PNG-HD-Quality 1.png',
                   height: 600),
             ), // Add your asset path
@@ -65,7 +65,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
         );
       },
       onSkip: () {
-        // You can skip to home screen
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => SignupScreen()),
         );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture_store/constants/app_colors.dart';
 
 class ComonButton extends StatefulWidget {
   final String title;
@@ -32,7 +33,7 @@ class _ComonButtonState extends State<ComonButton> {
         height: 44.h,
         width: 200,
         decoration: BoxDecoration(
-            color: Colors.green, borderRadius: BorderRadius.circular(20)),
+            color: AppColors.green, borderRadius: BorderRadius.circular(20)),
       ),
     );
   }

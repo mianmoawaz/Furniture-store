@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:furniture_store/button/common_button.dart';
+import 'package:furniture_store/widget/button/common_button.dart';
 import 'package:furniture_store/constants/app_images.dart';
 import 'package:furniture_store/view/auth/signup_screen.dart';
 import 'package:get/get.dart';

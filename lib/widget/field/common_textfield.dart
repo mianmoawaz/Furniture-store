@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 
 class CommonTextField extends StatefulWidget {
   final String hintText;
+  final String label;
   final IconData prefixicon;
   final TextEditingController controller;
   final bool isPassword;
+  final String? Function(String?)? validator;
 
   const CommonTextField({
     Key? key,
     required this.hintText,
+    required this.label,
     required this.prefixicon,
     required this.controller,
     this.isPassword = false,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -34,12 +38,14 @@ class _CommonTextFieldState extends State<CommonTextField> {
           Icon(widget.prefixicon, size: 20),
           const SizedBox(width: 10),
           Expanded(
-            child: TextField(
+            child: TextFormField(
               controller: widget.controller,
               obscureText: widget.isPassword ? _obscureText : false,
+              validator: widget.validator,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: widget.hintText,
+                errorStyle: TextStyle(color: Colors.red),
               ),
             ),
           ),
