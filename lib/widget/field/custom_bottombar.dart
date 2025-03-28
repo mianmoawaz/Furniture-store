@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_store/user/add_to_cart.dart';
+import 'package:furniture_store/user/detail_screen.dart';
 import 'package:furniture_store/user/home_screen.dart';
 import 'package:furniture_store/user/profile.dart';
 import 'package:furniture_store/user/search_product.dart';
@@ -19,37 +19,29 @@ class _CustomBottombarState extends State<CustomBottombar> {
   @override
   void initState() {
     super.initState();
-    _currentIndex = widget.selectedIndex; // ✅ Selected Index Set
+    _currentIndex = widget.selectedIndex;
   }
 
-  // ✅ Screens List
   final List<Widget> _screens = [
     const HomeScreen(),
     const SearchProduct(),
-    const AddToCart(),
+    const DetailScreen(),
     const Profile(),
-  ];
-
-  // ✅ Titles for AppBar
-  final List<String> _titles = [
-    "Home",
-    "Search",
-    "Cart",
-    "Profile",
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(_titles[_currentIndex]), // ✅ Show Screen Title
-      //   centerTitle: true,
-      // ),
-      body: _screens[_currentIndex], // ✅ Show Selected Screen
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _screens,
+      ),
       bottomNavigationBar: SalomonBottomBar(
         currentIndex: _currentIndex,
-        onTap: (i) {
-          setState(() => _currentIndex = i);
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
         },
         items: [
           SalomonBottomBarItem(

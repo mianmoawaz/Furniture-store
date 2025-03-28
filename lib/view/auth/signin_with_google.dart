@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:furniture_store/view/auth/signin_screen.dart';
 import 'package:furniture_store/widget/button/common_button.dart';
 import 'package:furniture_store/constants/app_images.dart';
 import 'package:furniture_store/view/auth/signup_screen.dart';
@@ -108,7 +109,7 @@ class _SigninWithGoogleState extends State<SigninWithGoogle> {
                 Text('Already have an account ? '),
                 GestureDetector(
                     onTap: () {
-                      Get.to(() => SignupScreen());
+                      Get.to(() => SigninScreen());
                     },
                     child: Text(
                       'Sign In',

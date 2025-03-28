@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_store/constants/app_images.dart';
 import 'package:furniture_store/view/auth/signin_with_google.dart';
-import 'package:furniture_store/view/auth/signup_screen.dart';
+import 'package:furniture_store/widget/field/custom_bottombar.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -59,6 +60,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
       ],
       onDone: () {
+        final box = GetStorage();
+        box.write('onboarding', true);
         // Navigate to home or login screen
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => SigninWithGoogle()),
@@ -66,7 +69,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       },
       onSkip: () {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => SignupScreen()),
+          MaterialPageRoute(builder: (context) => CustomBottombar()),
         );
       },
       showSkipButton: true,
